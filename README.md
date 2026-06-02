@@ -1,6 +1,6 @@
 # Design and Implementation of a Two-Pass Compiler & Responsive IDE
 
-[span_0](start_span)[span_1](start_span)An advanced software engineering project featuring a custom **Two-Pass Compiler**, an integrated **Real-Time Interpreter**, and a modern **Responsive IDE** built from scratch[span_0](end_span)[span_1](end_span). [span_2](start_span)Developed as the Final Project for the System Programming course at Istanbul Health and Technology University (İSTÜN)[span_2](end_span).
+(start_span)[span_1](start_span)An advanced software engineering project featuring a custom **Two-Pass Compiler**, an integrated **Real-Time Interpreter**, and a modern **Responsive IDE** built from scratch[span_0](end_span)[span_1](end_span). [span_2](start_span)Developed as the Final Project for the System Programming course at Istanbul Health and Technology University (İSTÜN)[span_2](end_span).
 
 ---
 

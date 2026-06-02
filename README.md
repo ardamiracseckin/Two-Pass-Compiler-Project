@@ -4,40 +4,53 @@ An advanced software engineering project featuring a custom **Two-Pass Compiler*
 
 ---
 
+## 🖥️ Modern Responsive IDE Layout
+
+![Source Code Editor](source_code.png)
+
+* **Flexible SplitContainer Architecture:** Eschews legacy static forms for a modern desktop layout segmented across 5 independent reactive tracking zones.
+* **Pixel-Perfect Line Numbering:** Features an automated right-aligned numbering component built with a native `PictureBox`.
+* **Real-Time Regex Syntax Highlighting:** Integrated custom Regex token parsing that colors key grammar structures instantly on text changes (Keywords ➡️ Blue, Strings ➡️ Orange, Numeric Literals ➡️ Purple, Comments ➡️ Green).
+
+---
+
 ## 🚀 System Architecture & Compiler Pipeline
 
 The system is split into two logical and functional core layers to process a custom high-level programming language subset:
 
 ### 1. Pass 1: Lexical Analysis (Lexer)
+
+![Token Stream](token_stream.png)
+
 * **Engine Design:** Built as a Deterministic Finite State Machine (DFSM) that character-by-character scans the source code input stream.
-* **Tokenization:** Converts valid character sequences into strongly typed, meaningful `Token` objects.
-* **Filtering:** Automatically strips out whitespaces and inline single-line comments (`//`) without generating empty tokens.
+* **Tokenization & Filtering:** Converts valid character sequences into strongly typed, meaningful `Token` objects while automatically stripping out whitespaces and inline single-line comments (`//`).
 * **Lookahead Mechanism:** Implements a safe `PeekNext()` methodology to accurately differentiate between single and double operators (e.g., `<`, `<=`, `>`, `>=`).
-* **Rich Vocabulary:** Supports core keywords including `int`, `float`, `string`, `bool`, `if`, `else`, `while`, `for`, `switch`, `case`, `default`, `print`, `true`, and `false`.
 
 ### 2. Pass 2: Syntax & Semantic Analysis (Parser)
+
+![Abstract Syntax Tree](AST.png)
+
 * **Parsing Technique:** Utilizes a top-down **Recursive Descent Parsing** strategy matching a strict Backus-Naur Form (BNF) grammar definition.
 * **AST Construction:** Generates a structured, hierarchical Abstract Syntax Tree (AST) representing the program's execution logic.
-* **Operator Precedence:** Mathematical and logical precedence is hardcoded into the C# Call Stack depth natively.
-* **Semantic Integrity:** Enforces **Strong Type Checking**. It detects undeclared variables at compile time and throws instant "Type Mismatch" errors when conflicting types interact.
+* **Operator Precedence & Syntactic Sugar:** Mathematical precedence is hardcoded into the C# Call Stack natively. Complex loops (like `for`) are silently rewritten into an optimized `WhileStatement` block within the AST layer.
 
 ---
 
 ## 🛠️ Advanced Compilation Techniques
 
-* **Syntactic Sugar Architecture:** To minimize interpreter execution complexity, complex loops (e.g., `for` loops) are silently rewritten into an optimized `WhileStatement` structural block within the AST layer. 
-* **Hexadecimal Memory Address Simulation:** Implements a realistic 32-bit operating system runtime memory model. Variables mapped inside the Symbol Table use a high-speed `Dictionary<string, Symbol>` data structure ensuring `O(1)` lookup complexity. 
-* **Dynamic Byte Allocation:** Simulates physical RAM consumption by allocating exact byte offsets dynamically depending on the data type. Allocated scopes are rendered inside the UI using professional 8-digit Hexadecimal strings.
-* **Panic Mode Error Handling & Synchronization:** Built with a `Synchronize()` recovery method. If a compile error occurs, the parser logs the exception with line data and advances the stream pointer to the next semantic anchor, enabling complete multi-error detection without system crashes.
+### Memory & Symbol Table Simulation
 
----
+![Symbol Table](symbol_table.png)
 
-## 🖥️ Modern Responsive IDE Layout
+* **Hexadecimal Memory Address Simulation:** Implements a realistic 32-bit operating system runtime memory model. 
+* **Dynamic Byte Allocation:** Simulates physical RAM consumption by allocating exact byte offsets dynamically (4 bytes for `int`/`float`, 8 bytes for `string`, 1 byte for `bool`). Allocated scopes are rendered inside the UI using professional 8-digit Hexadecimal strings.
 
-* **Flexible SplitContainer Architecture:** Eschews legacy static forms for a modern desktop layout segmented across 5 independent reactive tracking zones: Code Editor, Error Console, Token Stream Grid, Symbol Table, and the AST Output Terminal.
-* **Pixel-Perfect Line Numbering:** Features an automated right-aligned numbering component built with a native `PictureBox`. It dynamically hooks into the underlying editor's events to align coordinate rendering smoothly.
-* **Real-Time Regex Syntax Highlighting:** Integrated custom Regex token parsing that colors key grammar structures instantly on text changes.
-* **Classic Hacker-Themed Console:** Execution output streams straight from the Interpreter engine to an isolated custom green-on-black terminal window layout.
+### Panic Mode Error Handling
+
+![Error Console](error_console.png)
+
+* **Error Synchronization:** Built with a `Synchronize()` recovery method. If a compile error occurs, the parser logs the exception with line data and advances the stream pointer to the next semantic anchor, enabling complete multi-error detection without system crashes.
+* **Semantic Integrity:** Enforces **Strong Type Checking** detecting undeclared variables or throwing instant "Type Mismatch" errors when conflicting types interact.
 
 ---
 
